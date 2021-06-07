@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chaeekim <chaeekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 13:23:41 by chaeekim          #+#    #+#             */
-/*   Updated: 2021/06/07 18:06:25 by chaeekim         ###   ########.fr       */
+/*   Created: 2021/06/07 13:49:16 by chaeekim          #+#    #+#             */
+/*   Updated: 2021/06/07 14:06:32 by chaeekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int					ft_printf(const char *format, ...)
-{
-	int				ret;
-	va_list			ap;
+#include <stdarg.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-	va_start(ap, format);
-	ret = parse_format(ap, (char *)format);
-	va_end(ap);
-	return (ret);
-}
+int ft_printf(const char *format, ...);
+
+#endif
