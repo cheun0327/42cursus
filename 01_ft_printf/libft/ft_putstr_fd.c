@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chaeekim <chaeekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 13:49:16 by chaeekim          #+#    #+#             */
-/*   Updated: 2021/06/11 17:45:42 by chaeekim         ###   ########.fr       */
+/*   Created: 2020/12/27 19:29:57 by chaeekim          #+#    #+#             */
+/*   Updated: 2021/06/11 17:27:22 by chaeekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-#include <stdarg.h>
-#include <stdlib.h>
-#include <unistd.h>
-//#include "./libft/libft.h"
-
-#define TYPES "csdiuxX%"
-
-typedef struct  s_info
+int		ft_putstr_fd(char *s, int fd)
 {
-    int         minus;
-    int         zero;
-    int         width;
-    int         prec;
-    char        type;
-}               t_info;
+	size_t	i;
 
-int             ft_printf(const char *format, ...);
-
-#endif
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	return (i);
+}

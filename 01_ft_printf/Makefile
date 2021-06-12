@@ -6,7 +6,7 @@
 #    By: chaeekim <chaeekim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/08 10:24:43 by chaeekim          #+#    #+#              #
-#    Updated: 2021/06/08 10:24:47 by chaeekim         ###   ########.fr        #
+#    Updated: 2021/06/11 16:59:21 by chaeekim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,7 @@ NAME		= libftprintf.a
 LIBFT		= libft
 LIBFT_LIB	= libft.a
 
-SRCS		= ./ft_printf.c ./utils.c\
-			  ./print_char.c ./print_nbr.c ./print_string.c
+SRCS		= ./ft_printf.c
 OBJS		= $(SRCS:.c=.o)
 INCS		= .
 RM			= rm -f
