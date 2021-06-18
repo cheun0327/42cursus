@@ -6,7 +6,7 @@
 /*   By: chaeekim <chaeekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 13:23:41 by chaeekim          #+#    #+#             */
-/*   Updated: 2021/06/12 16:25:43 by chaeekim         ###   ########.fr       */
+/*   Updated: 2021/06/14 12:26:10 by chaeekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ int			ft_isdigit(int c)
 {
 	return ('0' <= c && c <= '9');
 }
+
+
+
 
 void		init_info(t_info *info)
 {
@@ -97,15 +100,36 @@ void		check_width_and_prec(va_list ap, char *format, t_info *info, int i)
 	print_t_info(info);
 }
 
+int			print_char(int arg, t_info *info)
+{
+	printf("--%d\n", arg);
+	print_t_info(info);
+	return (arg);
+}
+
+int			print_str(char * arg, t_info * info)
+{
+	printf("--%s\n", arg);
+	print_t_info(info);
+	return (0);
+}
+
+int			print_num(unsigned long long num, t_info * info)
+{
+	if (info->type == 'd' || info->type == 'i')
+		printf("%llu", num);
+	return (0);
+}
+
 int			print_type(va_list ap, t_info *info)
 {
 	int		ret;
 	char	type;
-	
+
 	ret = 0;
 	type = info->type;
 	if (type == 'c')
-		ret = print_char(va_arg(ap, int), info);
+		ret = print_char(va_arg(ap, int), info);	//ascii값으로 읽는다 -> int
 	else if (type == '%')
 		ret = print_char('%', info);
 	else if (type == 's')
@@ -175,8 +199,13 @@ int			ft_printf(const char *format, ...)
 int			main()
 {
 	char *s = "Hello";
-
-	ft_printf("[%-03.*]", 5, s);
+	char c = 'a';
+	
+	ft_printf("[%-03.*c]", 5, c);
+	ft_printf("%s", s);
+	ft_printf("%d", 10);
+	ft_printf("%u", 1234);
+	ft_printf("%x")
 	
 	return 0;
 }
