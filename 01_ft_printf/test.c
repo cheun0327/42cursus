@@ -6,7 +6,7 @@
 /*   By: chaeekim <chaeekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 18:06:29 by chaeekim          #+#    #+#             */
-/*   Updated: 2021/06/19 23:16:50 by chaeekim         ###   ########.fr       */
+/*   Updated: 2021/06/21 22:25:14 by chaeekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int             main()
 
     /** null string **/
     printf("[%s]", nullString);
+    
     /****************************** Char ****************************/
     printf("\n*** char ***\n");
     printf("[%c]\n", c);
@@ -85,5 +86,18 @@ int             main()
     printf("[%05.10d]\n", i);                        // prec > width > len : [0000000123] : 
     printf("[%01.10d]\n", i);                        // prec > len > width : [0000000123] : 
     printf("[%01.2d]\n", i);                         // len > prec > width : [123] : 
+    
+    /***************************** Pointer **************************/
+    printf("\n/*** Pointer ***/\n");                
+    printf("[%p]\n", &s);                           // [0x30c528440]
+    printf("[%15p]\n", &s);                         // [    0x30c528440]
+    printf("[%-15p]\n", &s);                        // [0x30c528440    ]
+    printf("[%*p]\n", 15, &s);                      // [    0x30c528440]
+
+    /** pointer은 prec 적용 x **/
+    /** pointer은 zero padding 적용 x **/
+    
+    /***************************** x **************************/
+    
     return 0;
 }
