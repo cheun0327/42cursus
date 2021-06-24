@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chaeekim <chaeekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 20:15:44 by chaeekim          #+#    #+#             */
-/*   Updated: 2021/06/24 20:15:45 by chaeekim         ###   ########.fr       */
+/*   Created: 2021/06/24 20:18:53 by chaeekim          #+#    #+#             */
+/*   Updated: 2021/06/24 20:18:54 by chaeekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isdigit(int c)
+int		ft_isupper(int c)
 {
-	return (c >= '0' && c <= '9');
+	return ((65 <= c) && (90 >= c));
+}
+
+int		ft_tolower(int c)
+{
+	if (ft_isupper(c))
+		return (c + 32);
+	return (c);
 }

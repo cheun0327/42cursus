@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chaeekim <chaeekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 20:15:44 by chaeekim          #+#    #+#             */
-/*   Updated: 2021/06/24 20:15:45 by chaeekim         ###   ########.fr       */
+/*   Created: 2021/06/24 20:15:24 by chaeekim          #+#    #+#             */
+/*   Updated: 2021/06/24 20:15:25 by chaeekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isdigit(int c)
+void		*ft_calloc(size_t nmemb, size_t size)
 {
-	return (c >= '0' && c <= '9');
+	void	*mem;
+
+	if (!(mem = malloc(nmemb * size)))
+		return (NULL);
+	ft_bzero(mem, (nmemb * size));
+	return (mem);
 }
